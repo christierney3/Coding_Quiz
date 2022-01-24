@@ -1,0 +1,17 @@
+#timer{
+    position:absolute;
+    top:6px;
+    right:16px;
+    display: none;
+}
+
+.time-left {
+    font-size: 14px;
+}
+#timer-display {
+    font-size: 14px;
+}
+
+.highscore:hover {
+    opacity: 50%;
+}
