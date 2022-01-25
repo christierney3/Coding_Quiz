@@ -13,6 +13,7 @@ var choiceD = document.getElementById('D');
 var nextButton = document.querySelector('.next-btn')
 var footer = document.querySelector('.footer')
 var scoreText = document.querySelector('.score')
+var user = document.getElementById('user-info')
 //Create array for questions
 const allQuestions = [{
   question: 'The sky is ___',
@@ -58,8 +59,11 @@ var count = 0;
 let score = 0;
 let timeLeft = 60;
 let scoreCount = 0;
+var result = {initials: user, scores: scoreCount}
 let highscore = []
 var savedScores = localStorage.getItem('highscore') || '[]';
+var highscores = [JSON.parse(savedScores), result].sort((a, b) => b.scores- a.scores).slice(0,5)
+localStorage.setItem('highscore', JSON.stringify(highscores))
 
 function renderQuestions() {
   let q = allQuestions[currentQuestion];
