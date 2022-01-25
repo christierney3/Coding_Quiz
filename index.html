@@ -21,6 +21,7 @@
           View Highscores
       </button>
     <main>
+      <!--Create card for quiz/score content-->
       <section>
         <div class="card">
           <div id="quiz-intro">This is a multiple choice and timed quiz with various code-related questions. Your score will be based on both the correct input of answers and how quickly you finish the quiz.</div>
@@ -31,11 +32,19 @@
           <div class='choice' id='C' onclick='checkAnswer("C")'></div>
           <div class='choice' id='D' onclick='checkAnswer("D")'></div>
         </div>
-        <dic class='score'>Final Score:</dic> 
-        <form id='user-info' input='text'></form>
+        <div class='score'>Final Score:</div> 
+        <form id='user-info' method='POST'>
+          <label for='initials'>Enter initials:</label>
+          <input type='initials' name='initials' id='initials'/>
+        </form>
+        <!--set table for highscores-->
+        <div class='card' id='highscore' type='highscore'>
+        <table>Highscores</table>
+        </div>
       </div>
+      <!--set footer for submit button-->
         <footer class='footer'>
-          <button class='next-btn'>Submit</button>
+          <button id='submit-btn' style='display:none'>Submit</button>
         </footer>
       </div>
       </section>

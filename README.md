@@ -12,3 +12,5 @@ the quiz began.
 * Once the quiz is over a score is displayed that represents the time left multiplied by the percentage of questions the user answered correctly.
 
 * The user is then to be prompted with a form to enter their initials and using local storage the highscores are set in a table.
+
+![Screenshot](./assets/images/Quiz_ss.jpg)

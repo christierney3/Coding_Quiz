@@ -29,7 +29,7 @@ body {
     margin-top: 0.6em;
   }
 
-  .next-btn {
+  #submit-btn {
     background:darkgoldenrod;
     border-radius: 4px;
     color: #071b14;
@@ -70,6 +70,19 @@ body {
     border-radius: 8px;
   } 
   
+  #answer-text {
+    display: none;
+  }
+
+  .choice {
+    width : 135px;
+    text-align: center;
+    border : 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    padding : 5px;
+  }
+
   .card {
     background:cyan;
     border-radius: 8px;   
@@ -99,4 +112,12 @@ body {
   .score {
     display: none;
     justify-content: center;
+  }
+
+  #user-info {
+    display: none;
+  }
+
+  #highscore {
+    display: none;
   }
