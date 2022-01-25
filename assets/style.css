@@ -1,23 +1,106 @@
-#timer{
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    font-family: Arial;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+  }
+ 
+  .highscore {
+    position: absolute;
+}
+
+  #start-button {
+    background:darkgoldenrod;
+    border-radius: 8px;
+    color: #071b14;
+    cursor: pointer;
+    font-size: 2em;
+    letter-spacing: 0.2px;
+    line-height: 16px;
+    max-width: 255px;
+    padding: 20px 52px;
+    text-align: center;
+    margin-top: 0.6em;
+  }
+
+  .next-btn {
+    background:darkgoldenrod;
+    border-radius: 4px;
+    color: #071b14;
+    cursor: pointer;
+    font-size: 1em;
+    letter-spacing: 0.2px;
+    line-height: 8px;
+    max-width: 155px;
+    padding: 10px 25px;
+    text-align: center;
+    margin-top: 0.6em;
+    text-align: center;
+  }
+
+  footer {
+      text-align: center;
+  }
+  
+  header {
+    padding: 40px;
+    text-align: center;
+    background: #fc01016c;
+    color: #fff;
+  }
+  
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  section {
+    flex: 0 auto;
+    padding: 8px;
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  
+  .results {
+    width: 30vw;
+    height: 400px;
+  }
+  
+  .card {
+    background:cyan;
+    border-radius: 8px;   
+    padding: 20px;
+  }
+  
+  .header-font {
+    font-size: 3em;
+    line-height: 60px;
+    text-align: center;
+  }
+  
+  #quiz-intro {
+    font-size: 1.5em;
+    text-align:center;
+    line-height: 60px;
+  }
+  
+  #timer {
     position:absolute;
-    top:6px;
-    right:16px;
-    display: none;
-}
-
-.time-left {
-    font-size: 14px;
-}
-#timer-display {
-    font-size: 14px;
-}
-
-.highscore:hover {
-    opacity: 50%;
-}
-
-.quiz-container {
-    position: relative;
-    height: 200px;
-    margin-top: 40px;
-}
+    top: 6px;
+    right: 16px;
+    font-size: .6em;
+    display:none;
+  }
+  

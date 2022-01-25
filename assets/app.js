@@ -1,82 +1,70 @@
-var startButton = $('#start-button');
-var timerEl = $('#timer');
-var timerDisplayEl = $('#timer-display')
-var quizContainer = $('#quiz')
-var questions = [
+var startButton = document.getElementById('start-button');
+var timerEl = document.getElementById('timer');
+var timerDisplayEl = document.getElementById('timer-display');
+var quizContainer = document.querySelector('.quiz');
+var quizIntro = document.getElementById('quiz-intro');
+var questionText = document.getElementById('question-text');
+var answerText = document.getElementById('answer-text');
+var nextButton = document.querySelector('.next-btn')
+
+var currentQuestion = '';
+var correctAnswer = 0;
+
+var allQuestions = [{
+  'question': 'The sky is ___',
+  'choices': ['Green', 'Blue', 'a figment of our imagination', 'All of the above'],
+  'correctAnswer': 1},
   {
-    question: 'The sky is ____.',
-    answers: {
-      a: 'Brown',
-      b: 'Blue',
-      c: 'a figment of our imagination',
-      d: 'All of the above'
-    },
-    correctAnswer: 'b'
-  },
+  'question': 'What is the best flavor of ice cream?',
+  'choices': ['Vanilla', 'Chocolate', 'Coffee', 'Mint Chip'],
+  'correctAnswer': 2},
   {
-    question: 'What can you do with Javascript?',
-    answers: {
-      a: 'Animate Websites',
-      b: 'Create applications',
-      c: 'Make Games',
-      d: 'All of the above',
-    },
-    correctAnswer: 'd'
-  },
+  'question': 'What can you do with Javascript?',
+  'choices': ['Animate Websites', 'Create applications', 'Make Games', 'All of the above'],
+  'correctAnswer': 3},
   {
-    question: 'Which Javascript library was used to aid in building this quiz?',
-    answers: {
-      a: 'New York Public Library',
-      b: 'Library of Congress',
-      c: 'Bootstrap',
-      d: 'JQuery',
-    },
-    correctAnswer: 'd'
-  },
+  'question': 'Which Javascript library could have been used to aid in building this quiz?',
+  'choices': ['New York Public Library', 'Library of Congress', 'Bootstrap', 'JQuery'],
+  'correctAnswer': 2},
   {
-    question: 'What are arrays used for in Javascript?',
-    answers: {
-      a: 'To store multiple elements in a single variable',
-      b: 'To protect your eyes from blue light',
-      c: 'To dress a specific way (like a programmer)',
-      d: 'A collection of solar panels that power your computer',
-    },
-    correctAnswer: 'a'
-  },
-  {
-    question: 'Who created Javascript?',
-    answers: {
-      a: 'Mark Zuckerberg',
-      b: 'Tom from Myspace',
-      c: 'Brendan Eich',
-      d: 'King Henry VII',
-    },
-    correctAnswer: 'c'
-  },
+  'question': 'Who created Javascript?',
+  'choices': ['Mark Zuckerberg', 'Tom from Myspace', 'Brendan Eich', 'King Henry VII'],
+  'correctAnswer': 2},
 ]
 
 function beginQuiz() {
-  quizContainer.text(questions)
-}
-beginQuiz()
-
-startButton.on('click', function countdown() {
-    timerEl.show();
-    var timeLeft = 60;
+    quizContainer.style.display = 'block';
+    quizIntro.replaceWith(quizContainer);
+    startButton.style.display = 'none';
+    revealQuestions()
+  }
   
-    var timeInterval = setInterval(function () {
-      if (timeLeft > 1) {
-        timerDisplayEl.text(timeLeft);
-        timeLeft--;
-      } else if (timeLeft === 1) {
-        timerDisplayEl.text(timeLeft);
-        timeLeft--;
-      } else {
-        timerDisplayEl.text('');
-        clearInterval(timeInterval);
-      }
-    }, 1000);
+  
+  startButton.addEventListener('click', function countdown() {
+    beginQuiz();
+      timerEl.style.display = 'block';
+      var timeLeft = 60;
+    
+      var timeInterval = setInterval(function () {
+        if (timeLeft > 1) {
+          timerDisplayEl.textContent = timeLeft;
+          timeLeft--;
+        } else if (timeLeft === 1) {
+          timerDisplayEl.textContent = timeLeft;
+          timeLeft--;
+        } else {
+          timerDisplayEl.textContent = '';
+          clearInterval(timeInterval);
+        }
+      }, 1000);
+  })
+
+  function revealQuestions() {
+      currentQuestion = allQuestions[0];
+      questionText.textContent = currentQuestion.question;
+    
+      nextButton.addEventListener('click', function next() {
+        currentQuestion++
 })
-countdown();
 
-
+  }
