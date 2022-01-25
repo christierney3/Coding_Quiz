@@ -24,20 +24,22 @@
       <section>
         <div class="card">
           <div id="quiz-intro">This is a multiple choice and timed quiz with various code-related questions. Your score will be based on both the correct input of answers and how quickly you finish the quiz.</div>
-        </div>
-      </section>
-      <div class='quiz'>  
-        <div id='question-text'>
-    
-        </div>
+        <div id='question-text'></div>
         <div id='answer-text'>
-    
+          <div class='choice' id='A' onclick='checkAnswer("A")'></div>
+          <div class='choice' id='B' onclick='checkAnswer("B")'></div>
+          <div class='choice' id='C' onclick='checkAnswer("C")'></div>
+          <div class='choice' id='D' onclick='checkAnswer("D")'></div>
         </div>
+      </div>
     
         <footer class='footer'>
           <button class='next-btn'>Next</button>
         </footer>
       </div>
+      </section>
+      <div class='quiz'>  
+        
 
     </main>
     <script src="./assets/app.js"></script>
