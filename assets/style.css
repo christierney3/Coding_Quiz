@@ -96,3 +96,7 @@ body {
     display:none;
   }
   
+  .score {
+    display: none;
+    justify-content: center;
+  }

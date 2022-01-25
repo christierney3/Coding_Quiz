@@ -5,12 +5,14 @@ var timerDisplayEl = document.getElementById('timer-display');
 var quizContainer = document.querySelector('.quiz');
 var quizIntro = document.getElementById('quiz-intro');
 var questionText = document.getElementById('question-text');
+var answerText = document.getElementById('answer-text');
 var choiceA = document.getElementById('A');
 var choiceB = document.getElementById('B');
 var choiceC = document.getElementById('C');
 var choiceD = document.getElementById('D');
 var nextButton = document.querySelector('.next-btn')
 var footer = document.querySelector('.footer')
+var scoreText = document.querySelector('.score')
 //Create array for questions
 const allQuestions = [{
   question: 'The sky is ___',
@@ -18,43 +20,46 @@ const allQuestions = [{
   B: 'Blue',
   C: 'a figment of our imagination',
   D: 'All of the above',
-  correctAnswer: 'b'},
+  correctAnswer: 'B'},
   {
   question: 'What is the best flavor of ice cream?',
   A: 'Vanilla',
   B: 'Chocolate',
   C: 'Coffee',
   D: 'Mint Chip',
-  correctAnswer: 'c'},
+  correctAnswer: 'C'},
   {
   question: 'What can you do with Javascript?',
   A: 'Animate Websites',
   B: 'Create applications',
   C: 'Make Games',
   D: 'All of the above',
-  correctAnswer: 'd'},
+  correctAnswer: 'D'},
   {
   question: 'Which Javascript library could have been used to aid in building this quiz?',
   A: 'New York Public Library',
   B: 'Library of Congress',
   C: 'Bootstrap',
   D: 'JQuery',
-  correctAnswer: 'd'},
+  correctAnswer: 'D'},
   {
   question: 'Who created Javascript?',
   A: 'Mark Zuckerberg',
   B: 'Tom from Myspace',
   C: 'Brendan Eich',
   D: 'King Henry VII',
-  correctAnswer: 'c'},
+  correctAnswer: 'C'}
 ]
 //Set global variable for i
 let i = 0;
 var lastQ = allQuestions.length - 1;
 var currentQuestion = 0;
 var count = 0;
-var score = 0;
-var timeLeft = 60;
+let score = 0;
+let timeLeft = 60;
+let scoreCount = 0;
+let highscore = []
+var savedScores = localStorage.getItem('highscore') || '[]';
 
 function renderQuestions() {
   let q = allQuestions[currentQuestion];
@@ -93,7 +98,7 @@ startButton.addEventListener('click', function countdown() {
   })
 
   function checkAnswer(answer){
-    if( answer == allQuestions[currentQuestion].correctAnswer){
+    if (answer == allQuestions[currentQuestion].correctAnswer){
         // answer is correct
         score++;
     }else{
@@ -107,9 +112,20 @@ startButton.addEventListener('click', function countdown() {
         renderQuestions();
     }else{
         // end the quiz and show the score
-        clearInterval(timeInterval);
         scoreRender();
     }
 }
 
+
+console.log(score)
+function scoreRender(){
+  questionText.style.display = 'none';
+  answerText.style.display = 'none';
+  scoreText.style.display = 'block';
+
+  var scoreCount = Math.round(100 * score/allQuestions.length * timeLeft);
+  scoreText.innerHTML = '<p>'+ scoreCount+ '</p>';
+  highscore.push(scoreCount)
+
+}
 
