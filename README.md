@@ -13,4 +13,4 @@ the quiz began.
 
 * The user is then to be prompted with a form to enter their initials and using local storage the highscores are set in a table.
 
-![Screenshot](./assets/images/Quiz_ss.jpg)
+![Screenshot](./assets/Quiz_ss.jpg)
